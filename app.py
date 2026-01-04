@@ -115,10 +115,6 @@ st.markdown(
     "<p style='text-align: center; font-family: Poppins; color: #9d4edd; font-size: 1.2rem; margin-bottom: 30px;'>Wishing you the most wonderful day</p>",
     unsafe_allow_html=True)
 
-# Audio (Birthday song)
-audio_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-st.audio(audio_url, format="audio/mp3", autoplay=True)
-
 # Main message in a styled box
 st.markdown("""
 <div class="message-box">
@@ -168,6 +164,14 @@ with col2:
 
 # Display content based on button click
 if button_clicked:
+    # --- UPDATED LOCAL AUDIO LOGIC ---
+    try:
+        audio_file = open('videoplayback.mp4', 'rb')
+        audio_bytes = audio_file.read()
+        st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+    except FileNotFoundError:
+        st.error("Wait! Please make sure 'latina.mp3' is in your PyCharm project folder.")
+
     # Balloons and snow animations
     st.balloons()
     st.snow()
