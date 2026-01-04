@@ -171,7 +171,6 @@ if button_clicked:
         st.audio(audio_bytes, format="audio/mp3", autoplay=True)
     except FileNotFoundError:
         st.error("Wait! Please make sure 'latina.mp3' is in your PyCharm project folder.")
-
     # Balloons and snow animations
     st.balloons()
     st.snow()
